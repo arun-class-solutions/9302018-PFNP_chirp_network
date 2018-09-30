@@ -36,6 +36,18 @@ app.get("/chirps", (req, res) => {
   // To see website: Visit http://localhost:3000/chirps
 });
 
+//Create new chirp
+app.post("/chirps", (req, res) => {
+  // Step 1: Retrieve new chirp text from the form submission
+  // Step 2: Save new chirp as record in the database
+  // Step 3: Redirect back to show all chirps page
+  var newChirpFromForm = req.body;
+
+  models.Chirp.create(newChirpFromForm).then(() => {
+    res.redirect("/chirps");
+  });
+});
+
 //Get specific chirp
 
 //Edit a chirp
